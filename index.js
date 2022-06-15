@@ -22,10 +22,47 @@ const fs = require('fs');
 
 // TODO: Create an array of questions for user input
 
+inquirer 
+    .prompt([
+        {
+            type: 'input',
+            message: 'What is the name of your project?',
+            name: 'projectName'
+        },        {
+            type: 'input',
+            message: 'Please describe your product.',
+            name: 'projectDesc'
+        },        {
+            type: 'input',
+            message: 'How do we install/view your product?',
+            name: 'installInfo'
+        },        {
+            type: 'input',
+            message: 'How do we utilize your product?',
+            name: 'utilInfo'
+        },        {
+            type: 'input',
+            message: 'What command do we use to test your project?',
+            name: 'commandInfo'
+        },        {
+            type: 'list',
+            message: 'Which License would you like to use?',
+            choices: ['MIT', 'GNU', 'Eclipse'],
+            name: 'licenseInfo'
+        },        {          
+            type: 'input',
+            message: 'What is your Github account?',
+            name: 'gitInfo'
+        },       
+        ])
 
-const questions = () => {
+.then((userInput) => {
+    let userOutput = `
     
-}
+    `
+})
+
+
 
 // TODO: Create a function to write README file
 
