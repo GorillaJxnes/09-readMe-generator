@@ -17,7 +17,7 @@
 
 
 // TODO: Include packages needed for this application
-const iquirer = require ('inquirer');
+const inquirer = require ('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
@@ -57,16 +57,43 @@ inquirer
         ])
 
 .then((userInput) => {
-    let userOutput = `
-    
+     let userOutput = `
+# ${userInput.projectName}
+## Description
+---
+${userInput.projectDesc}
+## Install Info
+---
+${userInput.installInfo}
+## Util Info
+---
+${userInput.utilInfo}
+## Command Info
+---
+${userInput.commandInfo}
+## License Info
+---
+${userInput.licenseInfo}
+## Git Hub Account Info.
+---
+[${userInput.gitInfo}](https://github.com/${userInput.gitInfo})
     `
+
+
+    fs.writeFile('README.md', userOutput, (err) =>{
+        if (err) {
+            console.log('File was not created, try again. stoopid')
+        }else {
+            console.log('You are not stoopid. The file was made.')
+        }
+    })
 })
 
 
 
 // TODO: Create a function to write README file
 
-function writeToFile(fileName, data) {}
+
 
 // TODO: Create a function to initialize app
 
